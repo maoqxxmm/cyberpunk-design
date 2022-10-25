@@ -1,0 +1,46 @@
+.cyberpunk-design-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 20px 40px;
+  color: white;
+  background-color: var(--highlight-primary);
+
+  &:hover {
+    & > .glitch,
+    & > .text::after {
+      display: block;
+      animation-name: glitch-anim-1;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-duration: 2s;
+    }
+  }
+
+  & > .text {
+    position: relative;
+    z-index: 2;
+
+    &::after {
+      content: attr(data-text);
+        display: none;
+        left: 0px;
+        position: absolute;
+        text-shadow: var(--highlight-secondary) 2px 1px, var(--theme-color) -2px -2px;
+        top: 0px;
+        width: 100%;
+        z-index: 2;
+    }
+  }
+
+  & > .glitch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--highlight-primary);
+  }
+}

@@ -8,8 +8,9 @@ interface Props {
 export function Button({ user }: Props) {
   return (
     <div className="cyberpunk-design-btn">
-      <span className="text" data-text="test">
-        test
+      <div className="bg"></div>
+      <span className="text" data-text="AVAILABLE NOW">
+        AVAILABLE NOW
       </span>
       <span className="glitch"></span>
     </div>

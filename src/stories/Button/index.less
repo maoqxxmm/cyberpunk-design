@@ -2,12 +2,18 @@
   position: relative;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
-  padding: 20px 40px;
   color: white;
-  background-color: var(--highlight-primary);
+  font-size: 26px;
+  font-weight: 700;
+  min-width: 337px;
+  line-height: 1;
+  height: 85px;
+  font-family: sans-serif;
+  letter-spacing: 2px;
 
-  &:hover {
+  &.enable-glitch:hover {
     & > .glitch,
     & > .text::after {
       display: block;
@@ -19,28 +25,50 @@
     }
   }
 
+  & > .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      transparent 3%,
+      var(--highlight-primary) 3%
+    );
+  }
+
   & > .text {
     position: relative;
     z-index: 2;
 
     &::after {
       content: attr(data-text);
-        display: none;
-        left: 0px;
-        position: absolute;
-        text-shadow: var(--highlight-secondary) 2px 1px, var(--theme-color) -2px -2px;
-        top: 0px;
-        width: 100%;
-        z-index: 2;
+      display: none;
+      left: 0px;
+      position: absolute;
+      text-shadow: var(--highlight-secondary) 2px 1px,
+        var(--theme-color) -2px -2px;
+      top: 0px;
+      width: 100%;
+      z-index: 2;
     }
   }
 
   & > .glitch {
     position: absolute;
+    display: none;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--highlight-primary);
+    background: linear-gradient(
+      45deg,
+      transparent 3%,
+      var(--highlight-primary) 3%
+    );
+    filter: drop-shadow(-2px 3px var(--highlight-secondary))
+      drop-shadow(-1px -3px var(--highlight-secondary))
+      drop-shadow(2px 1px var(--highlight-secondary));
   }
 }
